@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<body>
+
+    Enter items to buy : <br>
+    <input id="task" type="text">
+    <div id="error">
+
+    </div>
+    <button onclick="onAddItem()">Add</button>
+    
+    <ul id="list">
+
+    </ul>
+
+</body>
+
+<script>
+
+    var taskElem = document.getElementById('task');
+    var listElem = document.getElementById('list');
+    var errorEle = document.getElementById('error');
+    function onAddItem(){
+        errorEle.innerText='';
+        if(taskElem.value && taskElem.value.trim()){ // due to this if we try to add empty string to list it will not be added
+            console.log("Function Called...")
+            var li =  document.createElement('li');
+            li.innerText = taskElem.value;
+            listElem.appendChild(li);   
+            taskElem.value='';
+        }else{
+            errorEle.innerText = 'Please enter task';
+        }
+    }
+
+</script>
+
+</html>
